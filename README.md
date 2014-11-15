@@ -1,0 +1,4 @@
+debug
+=====
+
+PHP debug output
