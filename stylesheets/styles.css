@@ -160,7 +160,7 @@ strong {
 }
 
 header ul.one li {
-    border-left:1px solid #fff;
+    border-right:none;
     width:90px;
 }
 
@@ -193,6 +193,7 @@ header ul a strong {
 section {
     float:left;
     width:500px;
+    padding-left: 50px;
     padding-bottom:50px;
 }
 
