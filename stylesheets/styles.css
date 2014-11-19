@@ -101,7 +101,6 @@ img {
 
 header {
     width:270px;
-    position:fixed;
 }
 
 .cleanList ul {
@@ -185,7 +184,6 @@ hr {
 
 footer {
     width:270px;
-    position:fixed;
     bottom:50px;
 }
 
@@ -198,7 +196,6 @@ footer {
 
     header, section, footer {
         float:none;
-        position:static;
         width:auto;
     }
 
@@ -218,7 +215,6 @@ footer {
     }
 
     header ul {
-        position:absolute;
         right:50px;
         top:52px;
     }
@@ -234,7 +230,6 @@ footer {
     }
 
     header ul, header p.view {
-        position:static;
     }
 
     pre, code {
