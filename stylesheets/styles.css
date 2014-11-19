@@ -134,6 +134,9 @@ header ul.four {
 
 header ul.one {
     width:90px;
+    height:30px;
+    padding: 0;
+    margin: 0;
 }
 
 header li {
@@ -162,6 +165,7 @@ strong {
 header ul.one li {
     border-right:none;
     width:90px;
+    height:30px;
 }
 
 header ul li + li {
