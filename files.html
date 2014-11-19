@@ -4,10 +4,52 @@ layout: layout
 
 <h1>Files</h1>
 
+<ul style="cleanList">
+    <li>README.md : the readme file</li>
+    <li>LICENSE : please read it</li>
+    <li></li>
+    <li>print_d.php : a file of static functions</li>
+    <li>
+        <ul style="cleanList">
+            <li>These functions will always access the same builder object.</li>
+        </ul>
+    </li>
+    <li>debug.php : a class which can be instantiated</li>
+    <li>
+        <ul style="cleanList">
+            <li>By default, instantiating this in different locations in your code will
+                retrieve the same builder object. By passing in a $type argument, you can
+                create more than one instance, and retrieve each instance wherever you want
+                by passing in the same $type argument.  Each instance can be set up
+                differently, so for example, you could print output to different files.</li>
+        </ul>
+    </li>
+    <li></li>
+    <li>inc/debugBacktrace.php : gets the php backtrace and parses it for information</li>
+    <li>inc/debugBuilder.php : coordinates building the output string</li>
+    <li>inc/debugFinder.php : finds the parameter string of the calling function</li>
+    <li>inc/debugLabel.php : gets the output label</li>
+    <li>inc/debugPrinter.php : prints the output to the screen, or to a file</li>
+    <li>inc/debugSetup.php : keeps the setup information</li>
+    <li>inc/debugString.php : makes the debug string</li>
+    <li>inc/debugTimer.php : keeps and calculates timing information</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
 <dl>
-    <dt>README.md</dt><dd>readme file</dd>
-    <dt>LICENSE</dt><dd>please read it</dd>
-    <dt>examples.php</dt><dd>samples of usage</dd>
+    <dt>README.md - readme file</dt>
+    <dt>LICENSE - please read it</dt>
+    <dt>examples.php - samples of usage</dt>
 </dl>
 
 <dl>
