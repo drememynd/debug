@@ -4,13 +4,25 @@ layout: layout
 
 <h1>Files</h1>
 
+<dl>
+    <dt>README.md</dt>
+    <dd>readme file</dd>
+</dl>
+
 <ul>
     <li>README.md : readme file</li>
     <li>LICENSE : please read it</li>
     <li>examples.php : included just as a sample of usage</li>
+</ul>
+<ul>
     <li>print_d.php : a file of static functions which can be called independently</li>
-    <li>printer.php : a singleton class used by print_d, or can be used directly</li>
-    <li>backtrace.php : backtrace information class</li>
-    <li>builder.php : builds the debug string information</li>
-    <li>timer.php : keeps track of the time</li>
+    <li>debug.php : a class containing functions with similar functions to those in print_d.php</li>
+</ul>
+<ul>
+    <li>inc/debugBacktrace.php : backtrace information</li>
+    <li>inc/debugBuilder.php : the "brain" - builds the debug string information</li>
+    <li>inc/debugLabel.php : find the name of the printed variable to use as a label</li>
+    <li>inc/debugPrinter.php : outputs the debug string, either directly or to a file</li>
+    <li>inc/debugTimer.php : keeps track of the time elapsed</li>
+</ul>
 
