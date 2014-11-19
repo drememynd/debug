@@ -100,6 +100,7 @@ img {
 }
 
 header {
+    float:left;
     width:270px;
 }
 
@@ -181,6 +182,8 @@ header ul a strong {
 }
 
 section {
+    float:left;
+    width:500px;
     padding-bottom:50px;
 }
 
@@ -196,6 +199,8 @@ hr {
 }
 
 footer {
+    float:left;
+    width:270px;
     bottom:50px;
 }
 
@@ -209,6 +214,10 @@ footer {
     header, section, footer {
         float:none;
         width:auto;
+    }
+
+    header {
+        padding-right:320px;
     }
 
     section {
