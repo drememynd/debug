@@ -132,6 +132,10 @@ header ul.four {
     width:360px;
 }
 
+header ul.one {
+    width:90px;
+}
+
 header li {
     width:89px;
     float:left;
@@ -153,6 +157,11 @@ header ul a {
 strong {
     color:#222;
     font-weight:700;
+}
+
+header ul.one li {
+    border-left:1px solid #fff;
+    width:90px;
 }
 
 header ul li + li {
