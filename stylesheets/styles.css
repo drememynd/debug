@@ -104,7 +104,7 @@ header {
 }
 
 .cleanList ul {
-    list-style: ' ';
+    list-style: none;
 }
 
 header ul {
