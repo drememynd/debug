@@ -103,7 +103,7 @@ header {
     width:270px;
 }
 
-.cleanList ul {
+ul.cleanList {
     list-style: none;
 }
 
@@ -125,6 +125,10 @@ header ul {
     border:1px solid #d2d2d2;
     box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
     width:270px;
+}
+
+header ul.four {
+    width:360px;
 }
 
 header li {
@@ -155,17 +159,17 @@ header ul li + li {
     border-left:1px solid #fff;
 }
 
-.three header ul li + li + li {
+header ul.three li + li + li {
     border-right:none;
     width:89px;
 }
 
-.four header ul li + li + li {
+header ul.four li + li + li {
     width:88px;
     border-left:1px solid #fff;
 }
 
-.four header ul li + li + li + li {
+header ul.four li + li + li + li {
     border-right:none;
     width:89px;
 }
