@@ -1,15 +1,40 @@
 <?php
 
-class debug_timer
+/**
+ * A timer - creates and returns a string with current and elapsed time
+ *
+ * @author Katrina Wolfe
+ * @copyright (c) 2014, Katrina Wolfe
+ * @license http://drememynd.github.io/debug/license.html
+ */
+class debugTimer
 {
 
-    private static $lasttime;
+    private static $lasttime = false;
 
-    public function __construct()
+    /**
+     * gets a string with current and elapsed time
+     *
+     * @return string the time string
+     */
+    public function getTimeString()
     {
-        self::$lasttime = false;
+        $time = '';
+
+        $now = microtime(true);
+        $time .= $this->microTimeStr($now);
+        $time .= ' || ';
+        $time .= $this->elapsedTime($now);
+
+        return $time;
     }
 
+    /**
+     * builds the elapsed time string
+     *
+     * @param float $now microtime value as float
+     * @return string the elapsed time string
+     */
     private function elapsedTime($now)
     {
         $last = (self::$lasttime === false) ? $now : self::$lasttime;
@@ -21,6 +46,12 @@ class debug_timer
         return $elapsed;
     }
 
+    /**
+     * builds a string from a microtime float
+     *
+     * @param float $microtime a microtime float
+     * @return string a string representing the time passed in
+     */
     private function microTimeStr($microtime)
     {
         $long = floor($microtime);
@@ -32,6 +63,12 @@ class debug_timer
         return $time;
     }
 
+    /**
+     * builds a string from the difference between two microtime floats
+     *
+     * @param float $microtime the difference between two microtime floats
+     * @return string the string that was built
+     */
     private function microDiffStr($microtime)
     {
         $m = 60;
