@@ -4,38 +4,66 @@ layout: layout
 
 <h1>Setup Parameters</h1>
 
-addTime - whether to use the program timing feature
-The timing feature adds a timing string to the end of the backtrace string.
-This allows the program to be used to do program timing to the microsecond.
-DEFAULT: true
-
-fileName - the name of the output file
-If printToFile is true, this is the file name which will be used.
-DEFAULT: default.txt
-
-filePath - the directory of the output file
-If printToFile is true, this is the directory the output file will be in.
-DEFAULT: the top level of this program
-
-printToFile - output to a file if true, standard output if false
-DEFAULT: false
-
-traceLevel - the number of backtrace lines to include in output
-This is the global default of the program.  The single value parameter
-functions also take a parameter which overrides the global default
-DEFAULT: 1
-
-useLabels - whether to use the program labeling system
-If this is false, the system will not create and print labels.  Labels are
-created by parsing the calling PHP files for information about the parameters
-passed in.  You may want to turn this off if you have huge PHP source
-code files in your project
-DEFAULT: true
-
-useWebTags - format with tags if true, do not if false
-You may want to change this if, for example, you are outputting to standard
-output from a PHP script that is not being used on the web, or if you are
-outputting to a file, but want to view that file in a web browser.
-DEFAULTS:
-if printToFile = true then useWebTags = false
-if printToFile = false then useWebTags = true
+<ul class="cleanList">
+    <li>addTime - whether to use the program timing feature</li>
+    <li>
+        <ul class="cleanList">
+            <li>The timing feature adds a timing string to the end of the backtrace string.
+                This allows the program to be used to do program timing to the microsecond.</li>
+            <li>DEFAULT: true</li>
+        </ul>
+    </li>
+    <li>fileName - the name of the output file</li>
+    <li>
+        <ul class="cleanList">
+            <li>If printToFile is true, this is the file name which will be used.</li>
+            <li>DEFAULT: default.txt</li>
+        </ul>
+    </li>
+    <li>filePath - the directory of the output file</li>
+    <li>
+        <ul class="cleanList">
+            <li>If printToFile is true, this is the directory the output file will be in.</li>
+            <li>DEFAULT: the top level of this program</li>
+        </ul>
+    </li>
+    <li>printToFile - output to a file if true, standard output if false</li>
+    <li>
+        <ul class="cleanList">
+            <li>DEFAULT: false</li>
+        </ul>
+    </li>
+    <li>traceLevel - the number of backtrace lines to include in output</li>
+    <li>
+        <ul class="cleanList">
+            <li>This is the global default of the program.  The single value parameter
+                functions also take a parameter which overrides the global default</li>
+            <li>DEFAULT: 1</li>
+        </ul>
+    </li>
+    <li>useLabels - whether to use the program labeling system</li>
+    <li>
+        <ul class="cleanList">
+            <li>If this is false, the system will not create and print labels.  Labels are
+                created by parsing the calling PHP files for information about the parameters
+                passed in.  You may want to turn this off if you have huge PHP source
+                code files in your project</li>
+            <li>DEFAULT: true</li>
+        </ul>
+    </li>
+    <li>useWebTags - format with tags if true, do not if false</li>
+    <li>
+        <ul class="cleanList">
+            <li>You may want to change this if, for example, you are outputting to standard
+                output from a PHP script that is not being used on the web, or if you are
+                outputting to a file, but want to view that file in a web browser.</li>
+            <li>DEFAULTS:</li>
+            <li>
+                <ul class="cleanList">
+                    <li>if printToFile = true then useWebTags = false</li>
+                    <li>if printToFile = false then useWebTags = true</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
