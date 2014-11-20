@@ -112,7 +112,7 @@ header ul {
     list-style:none;
     height:40px;
 
-    padding:0;
+    padding: 20px 0px 0px 0px;
 
     background: #eee;
     background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
@@ -135,7 +135,7 @@ header ul.four {
 header ul.one {
     width:90px;
     height:30px;
-    padding: 0;
+    padding: 0px 0px 5px 0px;
     margin: 0;
 }
 
