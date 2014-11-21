@@ -27,12 +27,19 @@ debug
     differently, so for example, you could print output to different files.
 
 **inc/debugBacktrace.php** : gets the php backtrace and parses it for information
+
 **inc/debugBuilder.php** : coordinates building the output string
+
 **inc/debugFinder.php** : finds the parameter string of the calling function
+
 **inc/debugLabel.php** : gets the output label
+
 **inc/debugPrinter.php** : prints the output to the screen, or to a file
+
 **inc/debugSetup.php** : keeps the setup information
+
 **inc/debugString.php** : makes the debug string
+
 **inc/debugTimer.php** : keeps and calculates timing information
 
 ================
