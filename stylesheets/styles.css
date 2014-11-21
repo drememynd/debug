@@ -75,6 +75,11 @@ pre {
     overflow-x: auto;
 }
 
+output.pre {
+    background: #ffcccc;
+    border-color: #660000;
+}
+
 table {
     width:100%;
     border-collapse:collapse;
