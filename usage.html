@@ -205,3 +205,22 @@ $new->out($array);
 149::none::none 18:37:13:294 || 00:00:00:001 $array: Array ( [foo] => value [bar] => value )
 </pre>
 
+this instance will be set up to do pretty timer output.  There will be a
+space in the output only before a file name is printed.  Timer output is
+best done to a file, where it's easy to read.<br>
+<pre class="example">
+$timer = new debug('timer');
+$timer->setup(array('timerSpacing' => true));
+$timer->out();
+(do something for six microseconds)
+$timer->out();
+$timer->out();
+$timer->out();
+</pre>
+<pre class="output">
+C:\xampp\htdocs\debug\examples.php
+158::none::none 20:33:47:048 || 00:00:00:000
+162::none::none 20:33:47:054 || 00:00:00:006
+163::none::none 20:33:47:054 || 00:00:00:000
+164::none::none 20:33:47:054 || 00:00:00:000
+</pre>
