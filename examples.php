@@ -50,7 +50,7 @@ print_d($array);
 // )
 
 
-/* basic usage, varaible, backtrace level == 0
+/* basic usage, variable, backtrace level == 0
  * no backtrace or timing information, also no spacing before
  * this will visually append the output to the output above */
 print_d($test, 0);
