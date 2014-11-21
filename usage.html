@@ -5,7 +5,7 @@ layout: layout
 <h1>Quick Start Guide</h1>
 
 including both the file because they are used in the examples
-<pre>
+<pre class="example">
 require_once 'print_d.php';
 require_once 'debug.php';
 
@@ -15,7 +15,7 @@ $array = array('foo' => 'value', 'bar' => 'value');
 
 basic usage - no parameters<br>
 outputs backtrace and timer information
-<pre>
+<pre class="example">
 print_d();
 </pre>
 <pre class="output">
@@ -25,7 +25,7 @@ C:\xampp\htdocs\debug\examples.php
 
 basic usage - variable<br>
 notice that because we are in the same file, there is no file path
-<pre>
+<pre class="example">
 print_d($test);
 </pre>
 <pre class="output">
@@ -34,7 +34,7 @@ $test: example
 </pre>
 
 basic usage, defined constant
-<pre>
+<pre class="example">
 print_d(__LINE__);
 </pre>
 <pre class="output">
@@ -43,7 +43,7 @@ __LINE__: 29
 </pre>
 
 basic usage, string
-<pre>
+<pre class="example">
 print_d('hello world');
 </pre>
 <pre class="output">
@@ -53,7 +53,7 @@ hello world
 
 
 basic usage, array in variable
-<pre>
+<pre class="example">
 print_d($array);
 </pre>
 <pre class="output">
@@ -69,7 +69,7 @@ $array: Array
 basic usage, varaible, backtrace level == 0<br>
 no backtrace or timing information, also no spacing before<br>
 this will visually append the output to the output above
-<pre>
+<pre class="example">
 print_d($test, 0);
 </pre>
 <pre class="output">
@@ -80,7 +80,7 @@ basic usage, variable, backtrace level 3<br>
 three lines of backtrace information<br>
 timer information only appears on the first
 backtrace line.
-<pre>
+<pre class="example">
 print_d($test, 3);
 </pre>
 <pre class="output">
@@ -93,7 +93,7 @@ $test: example
 using the debug class works exactly the same way<br>
 notice how subsequent calls with backtrace level 0
 are appended to output
-<pre>
+<pre class="example">
 $bug = new debug();
 $bug->out($test);
 $bug->out(__LINE__, 0);
@@ -113,11 +113,11 @@ $array: Array
 using the multi parameter call<br>
 produces the same output as the three calls above<br>
 these two calls are equivalent
-<pre>
+<pre class="example">
 multi_d($test, __LINE__, $array);
 </pre>
 OR
-<pre>
+<pre class="example">
 $bug->multi($test, __LINE__, $array);
 </pre>
 <pre class="output">
@@ -143,7 +143,7 @@ useWebTags - format with tags if true, do not if false<br>
 <br>
 note that the sample below prints no timer information,two levels of
 backtrace data and does not print a label for the value
-<pre>
+<pre class="example">
 $config['addTime'] = false;
 $config['traceLevel'] = 2;
 $config['useLabels'] = false;
@@ -158,7 +158,7 @@ example
 
 this setup will effect the default instance - used by both print_d and
 by the class unless it's instantiated otherwise
-<pre>
+<pre class="example">
 $bug->out($test);
 </pre>
 <pre class="output">
@@ -171,7 +171,7 @@ one of the things which makes the class more versatile, is the ability to set
 up more than one instance by passing in an identifier upon instantiation
 note that the output from this class will be the default output and will
 include the file path, because the it's a new instance
-<pre>
+<pre class="example">
 $new = new debug('new');
 $new->out($test);
 </pre>
@@ -182,7 +182,7 @@ $test: example
 </pre>
 
 the default instance is still set up the way it was
-<pre>
+<pre class="example">
 print_d($test);
 </pre>
 <pre class="output">
@@ -197,7 +197,7 @@ of output to multiple output files<br>
 <br>
 note that the output is formatted poorly because it's being printed to
 a web page and is formatted for file output
-<pre>
+<pre class="example">
 $new->setup(array('useWebTags' => false));
 $new->out($array);
 </pre>

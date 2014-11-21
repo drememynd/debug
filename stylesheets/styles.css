@@ -75,6 +75,11 @@ pre {
     overflow-x: auto;
 }
 
+pre.example {
+    background: #ffccff;
+    border-color: #660066;
+}
+
 pre.output {
     background: #ffcccc;
     border-color: #660000;
