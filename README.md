@@ -1,7 +1,9 @@
 Author Katrina Wolfe
 Copyright (c) 2014
 
-License http://drememynd.github.io/debug/license.html
+License: http://drememynd.github.io/debug/license.html
+
+Documentation: http://drememynd.github.io/debug/
 
 debug
 =====
