@@ -75,7 +75,7 @@ pre {
     overflow-x: auto;
 }
 
-output.pre {
+pre.output {
     background: #ffcccc;
     border-color: #660000;
 }

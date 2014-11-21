@@ -23,8 +23,8 @@ C:\xampp\htdocs\debug\examples.php
 22::none::none 16:20:35:109 || 00:00:00:000
 </pre>
 
-basic usage - variable
-notice that because we are in the same file, there is no file path<br>
+basic usage - variable<br>
+notice that because we are in the same file, there is no file path
 <pre>
 print_d($test);
 </pre>
@@ -33,123 +33,175 @@ print_d($test);
 $test: example
 </pre>
 
-/* basic usage, defined constant */
+basic usage, defined constant
+<pre>
 print_d(__LINE__);
-// 33::none::none 16:29:01:228 || 00:00:00:000
-// __LINE__: 29
+</pre>
+<pre class="output">
+33::none::none 16:29:01:228 || 00:00:00:000
+__LINE__: 29
+</pre>
 
-/* basic usage, string */
+basic usage, string
+<pre>
 print_d('hello world');
-// 38::none::none 16:33:36:943 || 00:00:00:001
-// hello world
+</pre>
+<pre class="output">
+38::none::none 16:33:36:943 || 00:00:00:001
+hello world
+</pre>
 
 
-/* basic usage, array in variable */
+basic usage, array in variable
+<pre>
 print_d($array);
-// 44::none::none 16:44:30:386 || 00:00:00:001
-// $array: Array
-// (
-//     [foo] => value
-//     [bar] => value
-// )
+</pre>
+<pre class="output">
+44::none::none 16:44:30:386 || 00:00:00:001
+$array: Array
+(
+    [foo] => value
+    [bar] => value
+)
+</pre>
 
 
-/* basic usage, varaible, backtrace level == 0
-* no backtrace or timing information, also no spacing before
-* this will visually append the output to the output above */
+basic usage, varaible, backtrace level == 0<br>
+no backtrace or timing information, also no spacing before<br>
+this will visually append the output to the output above
+<pre>
 print_d($test, 0);
-// $test: example
+</pre>
+<pre class="output">
+$test: example
+</pre>
 
-/* basic usage, variable, backtrace level 3
-* three lines of backtrace information
-* timer information only appears on the first
-* backtrace line.  */
+basic usage, variable, backtrace level 3<br>
+three lines of backtrace information<br>
+timer information only appears on the first
+backtrace line.
+<pre>
 print_d($test, 3);
-// 63::none::none 16:41:45:527 || 00:00:00:001
-// none::none::none
-// none::none::none
-// $test: example
+</pre>
+<pre class="output">
+63::none::none 16:41:45:527 || 00:00:00:001
+none::none::none
+none::none::none
+$test: example
+</pre>
 
-/* using the debug class works exactly the same way
-* notice how subsequent calls with backtrace level 0
-* are appended to output */
+using the debug class works exactly the same way<br>
+notice how subsequent calls with backtrace level 0
+are appended to output
+<pre>
 $bug = new debug();
 $bug->out($test);
 $bug->out(__LINE__, 0);
 $bug->out($array, 0);
-// 73::none::none 16:54:52:084 || 00:00:00:001
-// $test: example
-// __LINE__: 75
-// $array: Array
-// (
-//     [foo] => value
-//     [bar] => value
-// )
+</pre>
+<pre class="output">
+73::none::none 16:54:52:084 || 00:00:00:001
+$test: example
+__LINE__: 75
+$array: Array
+(
+    [foo] => value
+    [bar] => value
+)
+</pre>
 
-/* using the multi parameter call
-* produces the same output as the three calls above
-* these two calls are equivalent */
+using the multi parameter call<br>
+produces the same output as the three calls above<br>
+these two calls are equivalent
+<pre>
 multi_d($test, __LINE__, $array);
+</pre>
+OR
+<pre>
 $bug->multi($test, __LINE__, $array);
-// 89::none::none 17:47:17:478 || 00:00:00:001
-// $test: example
-// __LINE__: 90
-// $array: Array
-// (
-//     [foo] => value
-//     [bar] => value
-// )
+</pre>
+<pre class="output">
+89::none::none 17:47:17:478 || 00:00:00:001
+$test: example
+__LINE__: 90
+$array: Array
+(
+    [foo] => value
+    [bar] => value
+)
+</pre>
 
-/* there are configuration values which can be changed.
-*
-* addTime - whether to use the program timing feature<br>
-* fileName - the name of the output file<br>
-* filePath - the directory of the output file<br>
-* printToFile - output to a file if true, standard output if false<br>
-* traceLevel - the number of backtrace lines to include in output<br>
-* useLabels - whether to use the program labeling system<br>
-* useWebTags - format with tags if true, do not if false
-*
-* note that the sample below prints no timer information,two levels of
-* backtrace data and does not print a label for the value */
+there are configuration values which can be changed.<br>
+<br>
+addTime - whether to use the program timing feature<br>
+fileName - the name of the output file<br>
+filePath - the directory of the output file<br>
+printToFile - output to a file if true, standard output if false<br>
+traceLevel - the number of backtrace lines to include in output<br>
+useLabels - whether to use the program labeling system<br>
+useWebTags - format with tags if true, do not if false<br>
+<br>
+note that the sample below prints no timer information,two levels of
+backtrace data and does not print a label for the value
+<pre>
 $config['addTime'] = false;
 $config['traceLevel'] = 2;
 $config['useLabels'] = false;
 setup_d($config);
 print_d($test);
-// 115::none::none
-// none::none::none
-// example
+</pre>
+<pre class="output">
+115::none::none
+none::none::none
+example
+</pre>
 
-/* this setup will effect the default instance - used by both print_d and
-* by the class unless it's instantiated otherwise */
+this setup will effect the default instance - used by both print_d and
+by the class unless it's instantiated otherwise
+<pre>
 $bug->out($test);
-// 122::none::none
-// none::none::none
-// example
+</pre>
+<pre class="output">
+122::none::none
+none::none::none
+example
+</pre>
 
-/* one of the thigs which makes the class more versitle, is the ability to set
-* up more than one instace by passing in an identifier upon instantiation
-* note that the output from this class will be the default output and will
-* include the file path, because the it's a new instance */
+one of the things which makes the class more versatile, is the ability to set
+up more than one instance by passing in an identifier upon instantiation
+note that the output from this class will be the default output and will
+include the file path, because the it's a new instance
+<pre>
 $new = new debug('new');
 $new->out($test);
-// C:\xampp\htdocs\debug\examples.php
-// 131::none::none 18:23:04:653 || 00:00:00:001
-// $test: example
+</pre>
+<pre class="output">
+C:\xampp\htdocs\debug\examples.php
+131::none::none 18:23:04:653 || 00:00:00:001
+$test: example
+</pre>
 
-/* the default instance is still set up the way it was */
+the default instance is still set up the way it was
+<pre>
 print_d($test);
-// 138::none::none
-// none::none::none
-// example
+</pre>
+<pre class="output">
+138::none::none
+none::none::none
+example
+</pre>
 
-/* if we change the configuration on the new instance, it effects only that
-* instance.  this feature is especially useful for printing different kinds
-* of output to multiple output files
-* note that the output is formatted poorly because it's being printed to
-* a web page and is formatted for file output */
+if we change the configuration on the new instance, it effects only that
+instance.  this feature is especially useful for printing different kinds
+of output to multiple output files<br>
+<br>
+note that the output is formatted poorly because it's being printed to
+a web page and is formatted for file output
+<pre>
 $new->setup(array('useWebTags' => false));
 $new->out($array);
-// 149::none::none 18:37:13:294 || 00:00:00:001 $array: Array ( [foo] => value [bar] => value )
+</pre>
+<pre class="output">
+149::none::none 18:37:13:294 || 00:00:00:001 $array: Array ( [foo] => value [bar] => value )
+</pre>
 
