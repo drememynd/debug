@@ -49,6 +49,10 @@ a small {
     display:block;
 }
 
+.filler {
+    height: 300px;
+}
+
 .wrapper {
     width:860px;
     margin:0 auto;
