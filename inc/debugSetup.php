@@ -9,6 +9,7 @@ defined('_DEFAULT_FILE_PATH') || define('_DEFAULT_FILE_PATH', realpath(__DIR__ .
  * string $fileName default: debug.txt : the name of the output file<br>
  * string $filePath default: top directory of this program<br>
  * boolean $useWebTags default: true : whether to format output with tags for the web<br>
+ * int $timerSpacing default: false : do not space between lines except for new file<br>
  * int $traceLevel default: 1 : the number of backtrace lines to include in output<br>
  * boolean $useLabels default: true : whether to use the program labeling system<br>
  * boolean $addTime default: true : whether to use the program timing feature
@@ -24,6 +25,7 @@ class debugSetup
     private $fileName = 'debug.txt';
     private $filePath = _DEFAULT_FILE_PATH;
     private $useWebTags = true;
+    private $timerSpacing = false;
     private $traceLevel = 1;
     private $useLabels = true;
     private $addTime = true;
@@ -40,6 +42,26 @@ class debugSetup
         if(method_exists($this, $methodName)) {
             $this->$methodName($value);
         }
+    }
+
+    /**
+     * set whether or not to use timer spacing
+     *
+     * @param boolean $addTime use timer spacing
+     */
+    public function setTimerSpacing($timerSpacing)
+    {
+        $this->timerSpacing = $timerSpacing;
+    }
+
+    /**
+     * get whether or not to use timer spacing
+     *
+     * @return boolean whether to use timer spacing
+     */
+    public function getTimerSpacing()
+    {
+        return $this->timerSpacing;
     }
 
     /**

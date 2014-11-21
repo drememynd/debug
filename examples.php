@@ -102,6 +102,7 @@ $bug->multi($test, __LINE__, $array);
  * fileName - the name of the output file<br>
  * filePath - the directory of the output file<br>
  * printToFile - output to a file if true, standard output if false<br>
+ * timerSpacing - do not space between lines except for new file<br>
  * traceLevel - the number of backtrace lines to include in output<br>
  * useLabels - whether to use the program labeling system<br>
  * useWebTags - format with tags if true, do not if false
@@ -148,3 +149,21 @@ print_d($test);
 $new->setup(array('useWebTags' => false));
 $new->out($array);
 // 149::none::none 18:37:13:294 || 00:00:00:001 $array: Array ( [foo] => value [bar] => value )
+
+/* this instance will be set up to do pretty timer output.  There will be a
+ * space in the output only before a file name is printed.  Timer output is
+ * best done to a file, where it's easy to read. */
+$timer = new debug('timer');
+$timer->setup(array('timerSpacing' => true));
+$timer->out();
+// do something for six microseconds
+$timer->out();
+$timer->out();
+$timer->out();
+// C:\xampp\htdocs\debug\examples.php
+// 158::none::none 20:33:47:048 || 00:00:00:000
+// 162::none::none 20:33:47:054 || 00:00:00:006
+// 163::none::none 20:33:47:054 || 00:00:00:000
+// 164::none::none 20:33:47:054 || 00:00:00:000
+
+

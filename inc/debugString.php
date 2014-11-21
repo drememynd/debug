@@ -37,6 +37,7 @@ class debugString
      */
     private $traceNum = 4;
     private $lastFile = '';
+    private $isNewFile;
 
     public function __construct($ds)
     {
@@ -45,13 +46,14 @@ class debugString
         $this->label = new debugLabel($this->ds);
     }
 
-    public function get($value, $level = NULL, $new = true)
+    public function getIsNewFile()
+    {
+        return $this->isNewFile;
+    }
+
+    public function get($value, $level, $new = true)
     {
         $printString = '';
-
-        if($level === NULL) {
-            $level = $this->ds->getTraceLevel();
-        }
 
         $bt = new debugBacktrace();
         $bt->makeTraces();
@@ -76,7 +78,7 @@ class debugString
                 $printString .= $label . ': ';
             }
             $v = print_r($value, 1);
-            $printString .= $v;
+            $printString .= trim($v);
         }
 
         return $printString;
@@ -128,12 +130,16 @@ class debugString
     private function getTraceString($trace, $useLastFile = true)
     {
         $print = '';
+        $this->isNewFile = false;
 
         if($useLastFile) {
             if($trace['file'] != $this->lastFile) {
-                $print = ($trace['file'] == 'none' ) ? '' : $trace['file'] . "\n";
+                if($trace['file'] != 'none') {
+                    $print = $trace['file'] . "\n";
+                    $this->lastFile = $trace['file'];
+                    $this->isNewFile = true;
+                }
             }
-            $this->lastFile = $trace['file'];
         }
 
         $print .= $trace['line'] . '::';

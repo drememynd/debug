@@ -66,6 +66,7 @@ class debugBuilder
      * fileName - the name of the output file<br>
      * filePath - the directory of the output file<br>
      * printToFile - output to a file if true, standard output if false<br>
+     * timerSpacing - do not space between lines except for new file<br>
      * traceLevel - the number of backtrace lines to include in output<br>
      * useLabels - whether to use the program labeling system<br>
      * useWebTags - format with tags if true, do not if false
@@ -88,8 +89,11 @@ class debugBuilder
      */
     public function build($args, $level = NULL)
     {
-        $space = ($level === 0) ? '' : "\n";
-        $str = $space . $this->string->get(debugBuilder::_EMPTY_PARAM, $level);
+        if($level === NULL) {
+            $level = $this->ds->getTraceLevel();
+        }
+
+        $str = $this->string->get(debugBuilder::_EMPTY_PARAM, $level);
 
         $temp = array();
         $new = true;
@@ -99,9 +103,26 @@ class debugBuilder
                 $new = false;
             }
         }
-        $str .= implode("\n", $temp) . "\n";
+        $str .= implode("\n", $temp);
+
+        $space = $this->determineSpace($level);
+
+        $str = $space . trim($str);
 
         $this->printer->goPrint($str);
+    }
+
+    private function determineSpace($level)
+    {
+        echo '<br>';
+        $space = '';
+        $tSpace = $this->ds->getTimerSpacing();
+        $newFile = $this->string->getIsNewFile();
+        if(($tSpace & $newFile) || (!$tSpace && $level > 0)) {
+            $space = "\n";
+        }
+
+        return $space;
     }
 
 }
@@ -120,10 +141,10 @@ function print_it($value, $label = '')
     $replace = array('<br>', '&nbsp;');
     $string = str_replace($search, $replace, print_r($value, 1));
 
-    $printString .= '<span style="font-family: monospace; text-align: left; padding: 0px 0px 5px 0px; margin 0px;">';
+    $printString .= '<span style="font-family: monospace; font-weight:bold; text-align: left; padding: 0px 0px 5px 0px; margin 0px;">';
     $printString .= (empty($label) ? '' : $label . ': ');
     $printString .= $string;
-    $printString .= '</span><br>';
+    $printString .= '</span>';
 
     echo $printString;
 }

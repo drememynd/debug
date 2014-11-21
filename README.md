@@ -68,6 +68,12 @@ debug
 
     DEFAULT: false
 
+**timerSpacing** - space between output only before new file lines
+    This is especially useful when outputting timer information to a file
+    as it is a compact way to format the information
+
+    DEFAULT: false
+
 **traceLevel** - the number of backtrace lines to include in output
     This is the global default of the program.  The single value parameter
     functions also take a parameter which overrides the global default

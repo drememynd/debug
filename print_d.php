@@ -42,6 +42,7 @@ function multi_d($value = debugBuilder::_EMPTY_PARAM)
  * fileName - the name of the output file<br>
  * filePath - the directory of the output file<br>
  * printToFile - output to a file if true, standard output if false<br>
+ * timerSpacing - do not space between lines except for new file<br>
  * traceLevel - the number of backtrace lines to include in output<br>
  * useLabels - whether to use the program labeling system<br>
  * useWebTags - format with tags if true, do not if false
