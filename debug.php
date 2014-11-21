@@ -10,9 +10,12 @@ require_once 'inc/debugBuilder.php';
 class debug
 {
 
+    /**
+     * @var debugBuilder
+     */
     private $builder;
 
-    public function __construct($type = 'default')
+    public function __construct($type = debugBuilder::_DEFAULT_BUILDER_TYPE)
     {
         $this->builder = debugBuilder::getDebugBuilder($type);
     }

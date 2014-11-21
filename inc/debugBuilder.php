@@ -15,6 +15,7 @@ class debugBuilder
 {
 
     const _EMPTY_PARAM = 'z||z';
+    const _DEFAULT_BUILDER_TYPE = 'default_type';
 
     /**
      * @var array[debugBuilder]
@@ -49,7 +50,7 @@ class debugBuilder
      *
      * @return printer
      */
-    public static function getDebugBuilder($type = 'default')
+    public static function getDebugBuilder($type = self::_DEFAULT_BUILDER_TYPE)
     {
         if(empty(self::$dbs[$type])) {
             self::$dbs[$type] = new debugBuilder();

@@ -101,9 +101,10 @@ class debugString
             $addTime = true;
         }
 
+        $useLastFile = true;
         for($i = 0; $i < $level; $i++) {
             $t = $bt->getTrace($traceNum, false);
-            $temp[$i] = $this->getTraceString($t);
+            $temp[$i] = $this->getTraceString($t, $useLastFile);
 
             if($addTime) {
                 $temp[$i] .= ' ';
@@ -112,6 +113,7 @@ class debugString
 
             $traceNum++;
             $addTime = false;
+            $useLastFile = false;
         }
 
         $printString = '';
@@ -123,13 +125,16 @@ class debugString
         return $printString;
     }
 
-    private function getTraceString($trace)
+    private function getTraceString($trace, $useLastFile = true)
     {
         $print = '';
-        if($trace['file'] != $this->lastFile) {
-            $print = ($trace['file'] == 'none' ) ? '' : $trace['file'] . "\n";
+
+        if($useLastFile) {
+            if($trace['file'] != $this->lastFile) {
+                $print = ($trace['file'] == 'none' ) ? '' : $trace['file'] . "\n";
+            }
+            $this->lastFile = $trace['file'];
         }
-        $this->lastFile = $trace['file'];
 
         $print .= $trace['line'] . '::';
         $print .= empty($trace['class']) ? 'none' : $trace['class'];

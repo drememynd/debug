@@ -118,6 +118,19 @@ class debugSetup
     }
 
     /**
+     * Set use web tags value
+     *
+     * @param boolean $useWebTags DEFAULT: true
+     * @return boolean success
+     */
+    public function setUseWebTags($useWebTags)
+    {
+        $this->useWebTags = $useWebTags;
+
+        return true;
+    }
+
+    /**
      * set a new filename - uses basename only
      * will fail if parameter is empty,
      * failure leaves existing filename
