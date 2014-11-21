@@ -11,7 +11,9 @@ debug
 ### Files:
 
 **README.md** : the readme file
+
 **LICENSE** : please read it
+
 **examples.php** : examples of usage
 
 **print_d.php** : a file of static functions which can be called independently
