@@ -51,6 +51,7 @@ class debugPrinter
     private function filePrint($string)
     {
         $filepath = $this->ds->getFullFilePath();
+
         file_put_contents($filepath, $string, FILE_APPEND);
     }
 

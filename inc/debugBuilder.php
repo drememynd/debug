@@ -27,6 +27,11 @@ class debugBuilder
     private $printer;
 
     /**
+     * @var debugString
+     */
+    private $string;
+
+    /**
      * @var debugSetup
      */
     private $ds;
@@ -82,9 +87,6 @@ class debugBuilder
      */
     public function build($args, $level = NULL)
     {
-        print_it($args, 'args');
-
-        //$level = $this->setLevel($level);
         $space = ($level === 0) ? '' : "\n";
         $str = $space . $this->string->get(debugBuilder::_EMPTY_PARAM, $level);
 
@@ -120,7 +122,7 @@ function print_it($value, $label = '')
     $printString .= '<span style="font-family: monospace; text-align: left; padding: 0px 0px 5px 0px; margin 0px;">';
     $printString .= (empty($label) ? '' : $label . ': ');
     $printString .= $string;
-    $printString .= '</span>';
+    $printString .= '</span><br>';
 
     echo $printString;
 }

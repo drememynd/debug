@@ -1,6 +1,6 @@
 <?php
 
-defined('_DEFAULT_FILE_PATH') || define('_DEFAULT_FILE_PATH', realpath('..'));
+defined('_DEFAULT_FILE_PATH') || define('_DEFAULT_FILE_PATH', realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'));
 
 /**
  * Holds setup values for desired behavior
@@ -36,7 +36,7 @@ class debugSetup
      */
     public function __set($name, $value)
     {
-        $methodName = 'set' . $name;
+        $methodName = 'set' . ucfirst($name);
         if(method_exists($this, $methodName)) {
             $this->$methodName($value);
         }

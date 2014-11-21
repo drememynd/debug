@@ -36,6 +36,7 @@ class debugString
      * @var int
      */
     private $traceNum = 4;
+    private $lastFile = '';
 
     public function __construct($ds)
     {
@@ -56,7 +57,7 @@ class debugString
         $bt->makeTraces();
 
         if($level > 0) {
-            $this->buildTraces($bt, $level);
+            $printString .= $this->buildTraces($bt, $level);
         }
 
 
@@ -112,19 +113,23 @@ class debugString
             $traceNum++;
             $addTime = false;
         }
+
+        $printString = '';
         if(!empty($temp)) {
             $printString .= implode("\n", $temp);
             $printString .= "\n";
         }
+
+        return $printString;
     }
 
     private function getTraceString($trace)
     {
         $print = '';
-        if($trace['file'] != self::$lastFile) {
+        if($trace['file'] != $this->lastFile) {
             $print = ($trace['file'] == 'none' ) ? '' : $trace['file'] . "\n";
         }
-        self::$lastFile = $trace['file'];
+        $this->lastFile = $trace['file'];
 
         $print .= $trace['line'] . '::';
         $print .= empty($trace['class']) ? 'none' : $trace['class'];
