@@ -17,6 +17,10 @@ require_once 'debug.php';
 $test = 'example';
 $array = array('foo' => 'value', 'bar' => 'value');
 
+
+print_d('this is a thing', 0);
+print_d('this is a thing', 2);
+
 /* basic usage - no parameters
  * outputs backtrace and timer information */
 print_d();

@@ -48,6 +48,7 @@ class debugLabel
             $pstring = array_shift($this->pStrings);
         }
 
+
         return $this->makeLabelFromPstring($pstring, $value);
     }
 
@@ -134,9 +135,9 @@ class debugLabel
             $inDelims = $this->setInDelims($c, $prev, $inDelims);
 
             if($c == ',' && empty($inDelims)) {
-                $this->pStrings[] = trim($string);
-                $string = '';
                 if($this->isMulti) {
+                    $this->pStrings[] = trim($string);
+                    $string = '';
                     continue;
                 } else {
                     break;
@@ -169,12 +170,11 @@ class debugLabel
 
         foreach($options as $begin => $end) {
 
-            if(in_array($begin, $inDelims) && $c == $end) {
-                unset($inDelims[$begin]);
-            }
 
             if(!in_array($begin, $inDelims) && $c == $begin) {
                 $inDelims[$begin] = $begin;
+            } else if(in_array($begin, $inDelims) && $c == $end) {
+                unset($inDelims[$begin]);
             }
         }
 

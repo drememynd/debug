@@ -114,11 +114,12 @@ class debugBuilder
 
     private function determineSpace($level)
     {
-        echo '<br>';
         $space = '';
         $tSpace = $this->ds->getTimerSpacing();
         $newFile = $this->string->getIsNewFile();
         if(($tSpace & $newFile) || (!$tSpace && $level > 0)) {
+            $space = "\n\n";
+        } else if($tSpace) {
             $space = "\n";
         }
 
@@ -141,7 +142,7 @@ function print_it($value, $label = '')
     $replace = array('<br>', '&nbsp;');
     $string = str_replace($search, $replace, print_r($value, 1));
 
-    $printString .= '<span style="font-family: monospace; font-weight:bold; text-align: left; padding: 0px 0px 5px 0px; margin 0px;">';
+    $printString .= '<span style="font-family: monospace; font-weight:bold; text-align: left; padding: 0px 0px 5px 0px; margin 0px;"><br>';
     $printString .= (empty($label) ? '' : $label . ': ');
     $printString .= $string;
     $printString .= '</span>';
