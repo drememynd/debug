@@ -121,6 +121,8 @@ class debugBuilder
             $space = "\n\n";
         } else if($tSpace) {
             $space = "\n";
+        } else if(!$tSpace) {
+            $space = "\n";
         }
 
         return $space;
